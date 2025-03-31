@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import qr from "qr-image";
+import qrcode from "qr-image";
 import fs from "fs";
  const questions=[
     {
@@ -22,10 +22,10 @@ import fs from "fs";
 inquirer.prompt(questions).then((answers) => {
     console.log(answers);
 
-    const qrCodeData = qr.image(answers['web-address'], { type: 'png' });
+    const qrCodeData = qrcode.image(answers['web-address'], { type: 'png' });
     qrCodeData.pipe(fs.createWriteStream('qrcode.png'));
 
-    const qrCodeData1 = qr.image(answers['web-2'], { type: 'png' });
+    const qrCodeData1 = qrcode.image(answers['web-2'], { type: 'png' });
     qrCodeData1.pipe(fs.createWriteStream('qrcode1.png'));
    
     const data=answers['web-address']+"\n"+answers['web-2'];
