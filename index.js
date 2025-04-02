@@ -18,7 +18,7 @@ import fs from "fs";
 
 ];
 
-
+// qrcode implementation
 inquirer.prompt(questions).then((answers) => {
     console.log(answers);
 
